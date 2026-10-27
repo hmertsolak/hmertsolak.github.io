@@ -95,7 +95,11 @@
     <span>Department of Zoology, Faculty of Science, Charles University, Prague</span>
   </div>
 </footer>
+<dialog class="lightbox" aria-label="Enlarged image"><button class="lb-close" aria-label="Close">×</button><img alt=""></dialog>
 <script>
+const lb=document.querySelector('.lightbox'),lbi=lb.querySelector('img');
+document.querySelectorAll('a[data-lightbox]').forEach(l=>l.addEventListener('click',e=>{e.preventDefault();lbi.src=l.href;lbi.alt=l.querySelector('img').alt;lb.showModal()}));
+lb.addEventListener('click',e=>{if(e.target!==lbi)lb.close()});
 const b=document.querySelector('.menu-btn'),n=document.getElementById('site-nav');
 b.addEventListener('click',()=>{const o=n.classList.toggle('open');b.setAttribute('aria-expanded',o)});
 </script>

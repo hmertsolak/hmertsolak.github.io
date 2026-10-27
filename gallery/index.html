@@ -57,7 +57,7 @@
 <main id="main" class="content">
 <h1>Gallery</h1>
 <section class="poster">
-  <a class="poster-img" href="/images/poster-eseb2022.jpg" target="_blank" rel="noopener" title="Open full-size poster">
+  <a class="poster-img" href="/images/poster-eseb2022.jpg" data-lightbox title="Enlarge poster">
     <img src="/images/poster-eseb2022.jpg" alt="ESEB 2022 poster: Altitudinal effect on gut microbiome composition of Anatolian blind mole rat" loading="lazy">
   </a>
   <div>
@@ -65,17 +65,17 @@
     <h2>Altitudinal effect on gut microbiome composition of Anatolian blind mole rat (<em>Nannospalax xanthodon</em>)</h2>
     <p><strong>Solak HM</strong>, Sezgin E, Čížková D, Kreisinger J, Çolak F, Matur F, Yanchukov A</p>
     <p class="muted">ESEB Congress 2022 · Prague, Czechia · 14 August 2022</p>
-    <a class="more" href="/images/poster-eseb2022.jpg" target="_blank" rel="noopener">View full size →</a>
+    <p class="muted">Click the poster to enlarge it.</p>
   </div>
 </section>
 <section class="block">
   <h2>Field &amp; research photos</h2>
   <div class="photos">
-<figure><a href="/images/gallery-defense.jpg" target="_blank" rel="noopener"><img src="/images/gallery-defense.jpg" alt="Group photo after the PhD defense" loading="lazy"></a><figcaption>A photo after my PhD defense.<br><span class="muted">January 2024 · ZBEÜN, Zonguldak, Türkiye</span></figcaption></figure>
-<figure><a href="/images/gallery-tissue.jpg" target="_blank" rel="noopener"><img src="/images/gallery-tissue.jpg" alt="Preparing tissue samples at a high-altitude field site" loading="lazy"></a><figcaption>Preparing tissue samples in the field.<br><span class="muted">Medetsiztepe, Ulukışla, Niğde, Türkiye · 3000 m a.s.l.</span></figcaption></figure>
-<figure><a href="/images/gallery-molerat.jpg" target="_blank" rel="noopener"><img src="/images/gallery-molerat.jpg" alt="An Anatolian blind mole rat on grass" loading="lazy"></a><figcaption><em>Nannospalax xanthodon</em>.<br><span class="muted">Medetsiztepe, Ulukışla, Niğde, Türkiye · 3000 m a.s.l.</span></figcaption></figure>
-<figure><a href="/images/gallery-camping.jpg" target="_blank" rel="noopener"><img src="/images/gallery-camping.jpg" alt="A tent at the high-altitude camping site" loading="lazy"></a><figcaption>High altitude field area camping site.<br><span class="muted">Medetsiztepe, Ulukışla, Niğde, Türkiye · 3000 m a.s.l.</span></figcaption></figure>
-<figure><a href="/images/gallery-lowaltitude.jpg" target="_blank" rel="noopener"><img src="/images/gallery-lowaltitude.jpg" alt="Low altitude field area landscape" loading="lazy"></a><figcaption>Low altitude field area.<br><span class="muted">Ereğli, Konya, Türkiye · ~1000 m a.s.l.</span></figcaption></figure>
+<figure><a href="/images/gallery-defense.jpg" data-lightbox><img src="/images/gallery-defense.jpg" alt="Group photo after the PhD defense" loading="lazy"></a><figcaption>A photo after my PhD defense.<br><span class="muted">January 2024 · ZBEÜN, Zonguldak, Türkiye</span></figcaption></figure>
+<figure><a href="/images/gallery-tissue.jpg" data-lightbox><img src="/images/gallery-tissue.jpg" alt="Preparing tissue samples at a high-altitude field site" loading="lazy"></a><figcaption>Preparing tissue samples in the field.<br><span class="muted">Medetsiztepe, Ulukışla, Niğde, Türkiye · 3000 m a.s.l.</span></figcaption></figure>
+<figure><a href="/images/gallery-molerat.jpg" data-lightbox><img src="/images/gallery-molerat.jpg" alt="An Anatolian blind mole rat on grass" loading="lazy"></a><figcaption><em>Nannospalax xanthodon</em>.<br><span class="muted">Medetsiztepe, Ulukışla, Niğde, Türkiye · 3000 m a.s.l.</span></figcaption></figure>
+<figure><a href="/images/gallery-camping.jpg" data-lightbox><img src="/images/gallery-camping.jpg" alt="A tent at the high-altitude camping site" loading="lazy"></a><figcaption>High altitude field area camping site.<br><span class="muted">Medetsiztepe, Ulukışla, Niğde, Türkiye · 3000 m a.s.l.</span></figcaption></figure>
+<figure><a href="/images/gallery-lowaltitude.jpg" data-lightbox><img src="/images/gallery-lowaltitude.jpg" alt="Low altitude field area landscape" loading="lazy"></a><figcaption>Low altitude field area.<br><span class="muted">Ereğli, Konya, Türkiye · ~1000 m a.s.l.</span></figcaption></figure>
   </div>
 </section>
 </main>
@@ -86,7 +86,11 @@
     <span>Department of Zoology, Faculty of Science, Charles University, Prague</span>
   </div>
 </footer>
+<dialog class="lightbox" aria-label="Enlarged image"><button class="lb-close" aria-label="Close">×</button><img alt=""></dialog>
 <script>
+const lb=document.querySelector('.lightbox'),lbi=lb.querySelector('img');
+document.querySelectorAll('a[data-lightbox]').forEach(l=>l.addEventListener('click',e=>{e.preventDefault();lbi.src=l.href;lbi.alt=l.querySelector('img').alt;lb.showModal()}));
+lb.addEventListener('click',e=>{if(e.target!==lbi)lb.close()});
 const b=document.querySelector('.menu-btn'),n=document.getElementById('site-nav');
 b.addEventListener('click',()=>{const o=n.classList.toggle('open');b.setAttribute('aria-expanded',o)});
 </script>
