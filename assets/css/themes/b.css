@@ -9,7 +9,7 @@
 .links a:hover{background:rgba(255,255,255,.08);color:#fff}
 .avatar{border-color:rgba(255,255,255,.2)}
 .btn-cv{background:var(--clay)}.btn-cv:hover{background:#9A5230}
-.content{max-width:860px;padding:56px 56px 72px}
+.content{max-width:940px;width:100%;margin:0 auto;padding:56px 48px 72px}
 .sidebar::before{content:"";display:block}
 .eyebrow,.more,.news time{color:var(--clay)}
 .block-head{border-bottom:3px solid var(--clay);border-image:linear-gradient(90deg,var(--clay) 64px,var(--line) 64px) 1}
